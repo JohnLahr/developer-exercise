@@ -79,15 +79,15 @@ public class Assignment {
         registry.sendEvent(new AddItemEvent(mainPlayer, Item.LOGS_STANDARD, 1));
         registry.sendEvent(standardLogsFiremakingEvent);
 
-        FiremakingEvent OakLogsFiremakingEvent = new FiremakingEvent(mainPlayer, Logs.OAK);
+        FiremakingEvent oakLogsFiremakingEvent = new FiremakingEvent(mainPlayer, Logs.OAK);
         registry.sendEvent(new AddItemEvent(mainPlayer, Item.LOGS_OAK, 4));
-        registry.sendEvent(OakLogsFiremakingEvent);
+        registry.sendEvent(oakLogsFiremakingEvent);
         registry.sendEvent(new GiveXpEvent(mainPlayer, Skill.FIREMAKING, 415));
-        registry.sendEvent(OakLogsFiremakingEvent);
+        registry.sendEvent(oakLogsFiremakingEvent);
 
-        FiremakingEvent WillowLogsFiremakingEvent = new FiremakingEvent(mainPlayer, Logs.WILLOW);
+        FiremakingEvent willowLogsFiremakingEvent = new FiremakingEvent(mainPlayer, Logs.WILLOW);
         registry.sendEvent(new AddItemEvent(mainPlayer, Item.LOGS_WILLOW, 1));
-        registry.sendEvent(WillowLogsFiremakingEvent);
+        registry.sendEvent(willowLogsFiremakingEvent);
 
         GetPlayerInventoryEvent event = new GetPlayerInventoryEvent(mainPlayer);
         registry.sendEvent(event);
@@ -101,8 +101,8 @@ public class Assignment {
         log("Willow logs quantity  : ", willowLogsQuantity);
 
         int standardLogsBurnDuration = standardLogsFiremakingEvent.getBurnDuration();
-        int oakLogsBurnDuration = OakLogsFiremakingEvent.getBurnDuration();
-        int willowLogsBurnDuration = WillowLogsFiremakingEvent.getBurnDuration();
+        int oakLogsBurnDuration = oakLogsFiremakingEvent.getBurnDuration();
+        int willowLogsBurnDuration = willowLogsFiremakingEvent.getBurnDuration();
         log("Standard logs burn duration: ", standardLogsBurnDuration);
         log("Oak logs burn duration: ", oakLogsBurnDuration);
         log("Willow logs burn duration: ", willowLogsBurnDuration);
@@ -122,10 +122,6 @@ public class Assignment {
         registry.sendEvent(new GiveXpEvent(mainPlayer, Skill.FIREMAKING, 25));
         registry.sendEvent(new GiveXpEvent(mainPlayer, Skill.MINING, 25));
 
-        GetPlayerLevel levelConstruction = new GetPlayerLevel(mainPlayer, Skill.CONSTRUCTION);
-        GetPlayerLevel levelExploration = new GetPlayerLevel(mainPlayer, Skill.EXPLORATION);
-        GetPlayerLevel levelFiremaking = new GetPlayerLevel(mainPlayer, Skill.FIREMAKING);
-        GetPlayerLevel levelMining = new GetPlayerLevel(mainPlayer, Skill.MINING);
         log("Construction level: ", getLevel(Skill.CONSTRUCTION));
         log("Exploration level : ", getLevel(Skill.EXPLORATION));
         log("Firemaking level  : ", getLevel(Skill.FIREMAKING));
@@ -144,7 +140,7 @@ public class Assignment {
     }
 
     public void log(Object... arguments) {
-        System.out.println(Arrays.asList(arguments).toString());
+        System.out.println(Arrays.asList(arguments));
     }
 
     private boolean playerHasQuantity(Item item, int quantity) {

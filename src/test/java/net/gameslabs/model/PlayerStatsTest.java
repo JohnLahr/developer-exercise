@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerStatsTest {
+class PlayerStatsTest {
 
     private PlayerStats playerStats;
 
@@ -15,7 +15,7 @@ public class PlayerStatsTest {
     }
 
     @Test
-    public void playerStatsSetsXpCorrectly() {
+    void playerStatsSetsXpCorrectly() {
         playerStats.setXp(Skill.MINING, 40);
         playerStats.setXp(Skill.MINING, 98);
         playerStats.setXp(Skill.MINING, 12);
@@ -24,7 +24,7 @@ public class PlayerStatsTest {
     }
 
     @Test
-    public void playerStatsAddsXpCorrectly() {
+    void playerStatsAddsXpCorrectly() {
         playerStats.setXp(Skill.EXPLORATION, 600);
         playerStats.addXp(Skill.EXPLORATION, 80);
 

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MineEventTest {
+class MineEventTest {
     private MineEvent sut;
 
     protected Player player;
@@ -19,14 +19,14 @@ public class MineEventTest {
     }
 
     @Test
-    public void MineEventShouldReturnCorrectOre() {
+    void MineEventShouldReturnCorrectOre() {
         sut = new MineEvent(player, Ore.IRON);
 
         assertSame(Ore.IRON, sut.getOre(), "Get ore should return correct ore");
     }
 
     @Test
-    public void MineEventShouldReturnCorrectPlayer() {
+    void MineEventShouldReturnCorrectPlayer() {
         sut = new MineEvent(player, Ore.COPPER);
 
         assertSame(player, sut.getPlayer(), "Get player should return correct player");

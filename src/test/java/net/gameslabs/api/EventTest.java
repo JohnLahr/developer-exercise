@@ -4,18 +4,18 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EventTest {
+class EventTest {
     private Event sut;
 
     @Test
-    public void eventCancelledStateDefaultsToFalse() {
+    void eventCancelledStateDefaultsToFalse() {
         sut = new Event();
 
         assertFalse(sut.isCancelled(), "Event cancelled state should default to false");
     }
 
     @Test
-    public void eventReturnsCorrectCancelledState() {
+    void eventReturnsCorrectCancelledState() {
         sut = new Event();
 
         sut.setCancelled(true);

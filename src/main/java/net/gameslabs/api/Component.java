@@ -10,7 +10,7 @@ public abstract class Component {
     private Map<Class, List<EventMethod>> registeredEvents;
     private ComponentRegistry registry;
 
-    public Component() {
+    protected Component() {
         registeredEvents = new HashMap<>();
     }
 
