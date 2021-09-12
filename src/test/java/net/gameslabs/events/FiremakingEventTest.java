@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class FiremakingEventTest {
+class FiremakingEventTest {
     private FiremakingEvent sut;
 
     protected Player player;
@@ -19,14 +19,14 @@ public class FiremakingEventTest {
     }
 
     @Test
-    public void firemakingEventLogsShouldBeReturnedCorrectly() {
+    void firemakingEventLogsShouldBeReturnedCorrectly() {
         sut = new FiremakingEvent(player, Logs.OAK);
 
         assertEquals(Logs.OAK, sut.getLogs(), "FiremakingEvent logs should be returned correctly");
     }
 
     @Test
-    public void testStandardLogsBurnDuration() {
+    void testStandardLogsBurnDuration() {
         int max = 45;
         int min = 30;
         int iterations = (max - min) * 1000;
@@ -40,7 +40,7 @@ public class FiremakingEventTest {
     }
 
     @Test
-    public void testOakLogsBurnDuration() {
+    void testOakLogsBurnDuration() {
         int max = 90;
         int min = 60;
         int iterations = (max - min) * 1000;
@@ -54,7 +54,7 @@ public class FiremakingEventTest {
     }
 
     @Test
-    public void testWillowLogsBurnDuration() {
+    void testWillowLogsBurnDuration() {
         int max = 135;
         int min = 90;
         int iterations = (max - min) * 1000;
@@ -68,7 +68,7 @@ public class FiremakingEventTest {
     }
 
     @Test
-    public void firemakingEventShouldReturnCorrectPlayer() {
+    void firemakingEventShouldReturnCorrectPlayer() {
         sut = new FiremakingEvent(player, Logs.STANDARD);
 
         assertSame(player, sut.getPlayer(), "Get player should return correct player");

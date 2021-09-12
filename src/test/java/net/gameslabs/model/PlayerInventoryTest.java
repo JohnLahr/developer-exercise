@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerInventoryTest {
+class PlayerInventoryTest {
     private PlayerInventory sut;
 
     @BeforeEach
@@ -14,21 +14,21 @@ public class PlayerInventoryTest {
     }
 
     @Test
-    public void playerInventoryAddItemQuantityDefaultsTo1() {
+    void playerInventoryAddItemQuantityDefaultsTo1() {
         sut.addItem(Item.ORE_TIN);
 
         assertEquals(1, sut.getQuantity(Item.ORE_TIN), "Add item default quantity should be 1");
     }
 
     @Test
-    public void playerInventoryAddItemCorrectlyAddsToNullValue() {
+    void playerInventoryAddItemCorrectlyAddsToNullValue() {
         sut.addItem(Item.SHRIMP_BURNT, 10);
 
         assertEquals(10, sut.getQuantity(Item.SHRIMP_BURNT), "Add new item to inventory should add correctly");
     }
 
     @Test
-    public void playerInventoryAddItemCorrectlyAddsItemQuantities() {
+    void playerInventoryAddItemCorrectlyAddsItemQuantities() {
         sut.addItem(Item.LOGS_WILLOW, 5);
         sut.addItem(Item.LOGS_WILLOW, 3);
 
@@ -36,7 +36,7 @@ public class PlayerInventoryTest {
     }
 
     @Test
-    public void playerInventoryDeterminesWhetherItemIsContained() {
+    void playerInventoryDeterminesWhetherItemIsContained() {
         sut.addItem(Item.LOGS_STANDARD);
         sut.addItem(Item.LOGS_OAK, 3);
         sut.addItem(Item.SHRIMP_BURNT, 5);
@@ -49,7 +49,7 @@ public class PlayerInventoryTest {
     }
 
     @Test
-    public void playerInventoryRemoveItemQuantityDefaultsToAll() {
+    void playerInventoryRemoveItemQuantityDefaultsToAll() {
         sut.addItem(Item.ORE_IRON, 4);
         sut.removeItem(Item.ORE_IRON);
 
@@ -57,7 +57,7 @@ public class PlayerInventoryTest {
     }
 
     @Test
-    public void playerInventoryRemoveItemRemovesCorrectQuantity() {
+    void playerInventoryRemoveItemRemovesCorrectQuantity() {
         sut.addItem(Item.ORE_COPPER, 5);
         sut.removeItem(Item.ORE_COPPER, 3);
 
@@ -65,7 +65,7 @@ public class PlayerInventoryTest {
     }
 
     @Test
-    public void playerInventoryRemoveItemDoesNotAllowNegativeValues() {
+    void playerInventoryRemoveItemDoesNotAllowNegativeValues() {
         sut.addItem(Item.SHRIMP_BURNT, 6);
         sut.removeItem(Item.SHRIMP_BURNT, 100);
 

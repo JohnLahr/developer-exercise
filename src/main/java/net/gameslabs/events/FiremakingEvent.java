@@ -4,12 +4,15 @@ import net.gameslabs.api.Player;
 import net.gameslabs.api.PlayerEvent;
 import net.gameslabs.model.Logs;
 
+import java.util.Random;
+
 /**
  * FiremakingEvent model.
  */
 public class FiremakingEvent extends PlayerEvent {
     private final int burnDuration;
     private final Logs logs;
+    private final Random random = new Random();
 
     /**
      * FiremakingEvent constructor with Player and Logs context.
@@ -44,7 +47,7 @@ public class FiremakingEvent extends PlayerEvent {
     private int calculateBurnDuration(Logs logs) {
         int base = 30;
         int multiplier = logs.getBurnDurationMultiplier();
-        int randomBurn = (int) Math.round(Math.random() * 15);
+        int randomBurn = random.nextInt(15);
 
         return (base + randomBurn) * multiplier;
     }

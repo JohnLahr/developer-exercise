@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerImplemTest {
+class PlayerImplemTest {
     private Player player;
 
     @BeforeEach
@@ -18,7 +18,7 @@ public class PlayerImplemTest {
     }
 
     @Test
-    public void playerImplemIdShouldBeReturnedCorrectly() {
+    void playerImplemIdShouldBeReturnedCorrectly() {
         Pattern pattern = Pattern.compile("^player-\\d+$");
         Matcher matcher = pattern.matcher(player.getId());
 
@@ -26,12 +26,12 @@ public class PlayerImplemTest {
     }
 
     @Test
-    public void playerImplemNameShouldBeReturnedCorrectly() {
+    void playerImplemNameShouldBeReturnedCorrectly() {
         assertEquals("Bewgs", player.getName(), "Player name should be returned correctly");
     }
 
     @Test
-    public void playerImplemEqualsComparesBothIdAndName() {
+    void playerImplemEqualsComparesBothIdAndName() {
         Player newPlayer = PlayerImplem.newPlayer("Bewgs");
 
         assertFalse(newPlayer.equals(player), "Player equals compares both ID and string");
@@ -40,7 +40,7 @@ public class PlayerImplemTest {
     }
 
     @Test
-    public void playerImplemHashShouldGenerateConsistentValues() {
+    void playerImplemHashShouldGenerateConsistentValues() {
         Player newPlayer = PlayerImplem.newPlayer("NotBewgs");
 
         int playerHash = player.hashCode();
@@ -52,7 +52,7 @@ public class PlayerImplemTest {
     }
 
     @Test
-    public void playerImplemToStringShouldBeFormattedCorrectly() {
+    void playerImplemToStringShouldBeFormattedCorrectly() {
         Pattern pattern = Pattern.compile("^\\(player-\\d+, Bewgs\\)$");
         Matcher matcher = pattern.matcher(player.toString());
 

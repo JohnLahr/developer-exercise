@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerEventTest {
+class PlayerEventTest {
     private PlayerEvent sut;
 
     protected Player player;
@@ -17,7 +17,7 @@ public class PlayerEventTest {
     }
 
     @Test
-    public void playerEventReturnsPlayerCorrectly() {
+    void playerEventReturnsPlayerCorrectly() {
         sut = new PlayerEvent(player);
 
         assertSame(player, sut.getPlayer(), "Player event should return correct player");

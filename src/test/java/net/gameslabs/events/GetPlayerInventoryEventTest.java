@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GetPlayerInventoryEventTest {
+class GetPlayerInventoryEventTest {
     private GetPlayerInventoryEvent sut;
 
     protected Player player;
@@ -25,7 +25,7 @@ public class GetPlayerInventoryEventTest {
     }
 
     @Test
-    public void getPlayerInventoryOnEmptyInventoryShouldReturnEmptyPlayerInventory() {
+    void getPlayerInventoryOnEmptyInventoryShouldReturnEmptyPlayerInventory() {
         PlayerInventory returnedPlayerInventory = sut.getPlayerInventory();
 
         assertNotNull(returnedPlayerInventory, "Empty player inventory should not be returned as null");
@@ -33,7 +33,7 @@ public class GetPlayerInventoryEventTest {
     }
 
     @Test
-    public void getPlayerInventoryShouldReturnCorrectInventory() {
+    void getPlayerInventoryShouldReturnCorrectInventory() {
         playerInventory.addItem(Item.COINS, 500);
         playerInventory.addItem(Item.ORE_TIN, 12);
         playerInventory.addItem(Item.SHRIMP_BURNT, 4);
@@ -46,7 +46,7 @@ public class GetPlayerInventoryEventTest {
     }
 
     @Test
-    public void setPlayerInventoryShouldCorrectlySetNewInventoryValue() {
+    void setPlayerInventoryShouldCorrectlySetNewInventoryValue() {
         playerInventory.addItem(Item.COINS, 500);
         playerInventory.addItem(Item.ORE_TIN, 12);
         playerInventory.addItem(Item.SHRIMP_BURNT, 4);

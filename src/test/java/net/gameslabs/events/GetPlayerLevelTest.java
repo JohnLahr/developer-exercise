@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GetPlayerLevelTest {
+class GetPlayerLevelTest {
     private GetPlayerLevel sut;
 
     protected Player player;
@@ -19,14 +19,14 @@ public class GetPlayerLevelTest {
     }
 
     @Test
-    public void getPlayerLevelReturnsCorrectSkill() {
+    void getPlayerLevelReturnsCorrectSkill() {
         sut = new GetPlayerLevel(player, Skill.CONSTRUCTION);
 
         assertSame(Skill.CONSTRUCTION, sut.getSkill(), "Get skill should return the same skill that was assigned");
     }
 
     @Test
-    public void getPlayerLevelReturnsCorrectLevel() {
+    void getPlayerLevelReturnsCorrectLevel() {
         sut = new GetPlayerLevel(player, Skill.FIREMAKING);
 
         sut.setLevel(99);
@@ -35,7 +35,7 @@ public class GetPlayerLevelTest {
     }
 
     @Test
-    public void getPlayerLevelShouldReturnCorrectPlayer() {
+    void getPlayerLevelShouldReturnCorrectPlayer() {
         sut = new GetPlayerLevel(player, Skill.MINING);
 
         assertSame(player, sut.getPlayer(), "Get player should return correct player");

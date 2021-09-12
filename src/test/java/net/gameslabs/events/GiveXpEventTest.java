@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GiveXpEventTest {
+class GiveXpEventTest {
     private GiveXpEvent sut;
 
     protected Player player;
@@ -19,14 +19,14 @@ public class GiveXpEventTest {
     }
 
     @Test
-    public void giveXpEventShouldReturnCorrectSkill() {
+    void giveXpEventShouldReturnCorrectSkill() {
         sut = new GiveXpEvent(player, Skill.CONSTRUCTION, 9);
 
         assertSame(Skill.CONSTRUCTION, sut.getSkill(), "Get skill should return correct skill");
     }
 
     @Test
-    public void giveXpEventReturnsCorrectXp() {
+    void giveXpEventReturnsCorrectXp() {
         sut = new GiveXpEvent(player, Skill.MINING, 112);
 
         sut.setXp(80);
@@ -35,7 +35,7 @@ public class GiveXpEventTest {
     }
 
     @Test
-    public void giveXpEventShouldReturnCorrectPlayer() {
+    void giveXpEventShouldReturnCorrectPlayer() {
         sut = new GiveXpEvent(player, Skill.EXPLORATION, 600);
 
         assertSame(player, sut.getPlayer(), "Get player should return correct player");
