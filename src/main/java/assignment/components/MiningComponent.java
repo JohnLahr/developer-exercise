@@ -9,30 +9,33 @@ import net.gameslabs.events.MineEvent;
 import net.gameslabs.model.Ore;
 import net.gameslabs.model.Skill;
 
+/**
+ * Component to handle mining skill functionality.
+ */
 public class MiningComponent extends Component {
-    @Override
-    public void onLoad() {
-        registerEvent(MineEvent.class, this::onMineEvent);
+  @Override
+  public void onLoad() {
+    registerEvent(MineEvent.class, this::onMineEvent);
+  }
+
+  private void onMineEvent(MineEvent event) {
+    Player player = event.getPlayer();
+    Ore ore = event.getOre();
+    GetPlayerLevel getPlayerLevel = new GetPlayerLevel(player, Skill.MINING);
+
+    send(getPlayerLevel);
+
+    if (getPlayerLevel.getLevel() < ore.getRequiredMiningLevel()) {
+      event.setCancelled(true);
+      return;
     }
 
-    private void onMineEvent(MineEvent event) {
-        Player player = event.getPlayer();
-        Ore ore = event.getOre();
-        GetPlayerLevel getPlayerLevel = new GetPlayerLevel(player, Skill.MINING);
+    send(new GiveXpEvent(player, Skill.MINING, ore.getMiningExperienceGranted()));
+    send(new AddItemEvent(player, ore.getItem(), 1));
+  }
 
-        send(getPlayerLevel);
-
-        if (getPlayerLevel.getLevel() < ore.getRequiredMiningLevel()) {
-            event.setCancelled(true);
-            return;
-        }
-
-        send(new GiveXpEvent(player, Skill.MINING, ore.getMiningExperienceGranted()));
-        send(new AddItemEvent(player, ore.getItem(), 1));
-    }
-
-    @Override
-    public void onUnload() {
-        // Do nothing
-    }
+  @Override
+  public void onUnload() {
+    // Do nothing
+  }
 }
