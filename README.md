@@ -86,3 +86,9 @@ For this assignment, I have added a Firemaking skill and some basic features. Th
 * Perform a skill check and cancel the firemaking event if player skill is too low
 
 All related tests have been added and confirmed.
+
+# Testing
+A Jenkinsfile has been added (and runs on my Kubernetes cluster), but since that won't work for everyone else, I've
+provided a `run.sh` file to do more or less the same.
+
+To lint, build, and run all tests in one go, simply run the `run.sh` script.
