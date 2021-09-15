@@ -1,34 +1,36 @@
 package net.gameslabs.events;
 
+import static org.junit.jupiter.api.Assertions.assertSame;
+
 import net.gameslabs.api.Player;
 import net.gameslabs.implem.PlayerImplem;
 import net.gameslabs.model.Ore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class MineEventTest {
-    private MineEvent sut;
+  private MineEvent sut;
 
-    protected Player player;
+  protected Player player;
 
-    @BeforeEach
-    public void setup() throws Exception {
-        player = PlayerImplem.newPlayer("Bewgs");
-    }
+  @BeforeEach
+  public void setup() throws Exception {
+    player = PlayerImplem.newPlayer("Bewgs");
+  }
 
-    @Test
-    void MineEventShouldReturnCorrectOre() {
-        sut = new MineEvent(player, Ore.IRON);
+  @Test
+  void mineEventShouldReturnCorrectOre() {
+    sut = new MineEvent(player, Ore.IRON);
 
-        assertSame(Ore.IRON, sut.getOre(), "Get ore should return correct ore");
-    }
+    assertSame(Ore.IRON, sut.getOre(),
+        "Get ore should return correct ore");
+  }
 
-    @Test
-    void MineEventShouldReturnCorrectPlayer() {
-        sut = new MineEvent(player, Ore.COPPER);
+  @Test
+  void mineEventShouldReturnCorrectPlayer() {
+    sut = new MineEvent(player, Ore.COPPER);
 
-        assertSame(player, sut.getPlayer(), "Get player should return correct player");
-    }
+    assertSame(player, sut.getPlayer(),
+        "Get player should return correct player");
+  }
 }
